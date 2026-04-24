@@ -1,5 +1,7 @@
+package com.mycompany.app;
+
 // Реализация игры "Крестики-нолики" (3x3)
-// Минимаксный алгоритм
+// Минимальный алгоритм
 
 import java.awt.*;
 import java.awt.event.*;
@@ -98,7 +100,11 @@ class Game {
 
    int MiniMax(char[] board, Player player) // выбор наилучшего хода
    {
-    int best_val = -Game.INF, index = 0;
+    // Значения оценки из evaluatePosition/MinMax — в диапазоне [-INF, INF].
+    // Нельзя инициализировать best_val числом -INF: при всех оценках -INF
+    // первый ход попадёт в ветку «равенство», best_moves[0] не запишется и вернётся 0.
+    int best_val = Integer.MIN_VALUE;
+    int index = 0;
     ArrayList<Integer> move_list=new ArrayList<>();
     int[] best_moves = new int[9];
  
@@ -126,7 +132,8 @@ class Game {
     }
     if (index > 0)  {
       Random r = new Random();
-      index = r.nextInt(index);
+      // index — последний занятый индекс в best_moves; всего ходов-кандидатов index + 1
+      index = r.nextInt(index + 1);
     }
    
     System.out.printf("\nminimax best: %3d(%1d) ", best_moves[index], best_val);
@@ -326,11 +333,5 @@ class TicTacToePanel extends JPanel implements ActionListener {
         JOptionPane.showMessageDialog(null,"Ничья","Результат", JOptionPane.WARNING_MESSAGE);
         System.exit(0);
       } 
-
-
-
-
    }
 }
-
-
