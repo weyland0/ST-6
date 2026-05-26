@@ -43,20 +43,21 @@
   </dependencies>
 
   <build>
+    <sourceDirectory>my-app/src/main/java</sourceDirectory>
+    <testSourceDirectory>my-app/src/test/java</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.3.0</version>
         <configuration>
           <forkCount>1</forkCount>
-          <testFailureIgnore>true</testFailureIgnore>
         </configuration>
       </plugin>
             <!-- Move JaCoCo plugin outside of pluginManagement -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.11</version>
+        <version>0.8.14</version>
         <executions>
           <execution>
             <goals>

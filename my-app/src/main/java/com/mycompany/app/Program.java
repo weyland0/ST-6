@@ -1,7 +1,7 @@
 package com.mycompany.app;
 
 // Реализация игры "Крестики-нолики" (3x3)
-// Минимальный алгоритм
+// Минимаксный алгоритм
 
 import java.awt.*;
 import java.awt.event.*;
