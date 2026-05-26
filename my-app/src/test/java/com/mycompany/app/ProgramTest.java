@@ -121,7 +121,7 @@ class ProgramTest {
 
         game.generateMoves(board("X.O..OXX."), moves);
 
-        assertEquals(List.of(1, 3, 4, 8), moves);
+        assertEquals(Arrays.asList(1, 3, 4, 8), moves);
     }
 
     @Test
@@ -257,7 +257,7 @@ class ProgramTest {
 
     @Test
     void utilityPrintsMoveList() {
-        ArrayList<Integer> moves = new ArrayList<>(List.of(2, 4, 8));
+        ArrayList<Integer> moves = new ArrayList<>(Arrays.asList(2, 4, 8));
 
         String output = captureOutput(() -> Utility.print(moves));
 
